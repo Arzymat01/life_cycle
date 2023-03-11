@@ -14,7 +14,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SignUpPage"),
+        title: const Text("Регистрация"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -39,7 +39,10 @@ class SignUpPage extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text('Катталуу')),
+                child: const Text(
+                  'Вход',
+                  style: TextStyle(fontSize: 25),
+                )),
             ElevatedButton(
               onPressed: () async {
                 await service.signUp(
@@ -51,7 +54,7 @@ class SignUpPage extends StatelessWidget {
                 await Navigator.pushAndRemoveUntil<void>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(),
+                    builder: (context) => const HomePage(),
                   ),
                   (route) => false,
                 );

@@ -51,14 +51,12 @@ class UserStateServices {
     final cachedLastame = pref.getString(_lastNameKey);
     final cachedPassword = pref.getString(_passwordkey);
 
-    if (cachedName != null &&
-        cachedLastame != null &&
-        cachedPassword != _passwordkey) {
+    if (cachedName != null && cachedLastame != null && cachedPassword != null) {
       return UserModel(
         id: "1",
         name: cachedName,
         lastName: cachedLastame,
-        password: _passwordkey,
+        password: cachedPassword,
       );
     } else {
       return null;
