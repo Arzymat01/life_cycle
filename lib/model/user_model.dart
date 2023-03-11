@@ -1,12 +1,12 @@
 class UserModel {
   UserModel({
     required this.id,
-    required this.name,
-    required this.lastNam,
-    required this.password,
+    this.name,
+    this.lastName,
+    this.password,
   });
   final String id;
-  final String name;
-  final String lastNam;
-  final String password;
+  final String? name;
+  final String? lastName;
+  final String? password;
 }

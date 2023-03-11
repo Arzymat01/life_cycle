@@ -1,7 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:life_cycle/pages/home_page.dart';
+import 'package:life_cycle/service/user_state.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+  SignInPage({super.key});
+  final _nameCtl = TextEditingController();
+  final _passwordCtl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +20,32 @@ class SignInPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            TextFormField(),
-            TextFormField(),
+            TextFormField(
+              controller: _nameCtl,
+            ),
+            TextFormField(
+              controller: _passwordCtl,
+            ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                final isTrue = await service.sigIn(
+                  name: _nameCtl.text,
+                  password: _passwordCtl.text,
+                );
+
+                if (isTrue) {
+                  // ignore: use_build_context_synchronously
+                  await Navigator.pushAndRemoveUntil<void>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
+                    (route) => false,
+                  );
+                } else {
+                  print('login or password error');
+                }
+              },
               child: const Text("Sign_In"),
             ),
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:life_cycle/life_c/home_page_life.dart';
+import 'package:life_cycle/pages/home_page.dart';
 import 'package:life_cycle/pages/sign_in_page.dart';
 import 'package:life_cycle/service/user_state.dart';
 
@@ -34,7 +35,7 @@ class SignUpPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignInPage(),
+                      builder: (context) => SignInPage(),
                     ),
                   );
                 },
